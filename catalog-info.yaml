@@ -1,8 +1,29 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: backstage-public-catalog
+  name: my-k8s-service
+  description: A Kubernetes-based microservice that handles user authentication.
+  tags:
+    - kubernetes
+    - auth
+    - service
+  annotations:
+    github.com/project-slug: zenoweed/my-k8s-service
+    backstage.io/kubernetes-id: my-k8s-service
+    backstage.io/techdocs-ref: dir:.
+    backstage.io/source-location: url:https://github.com/zenoweed/my-k8s-service
+    backstage.io/view-url: https://github.com/zenoweed/my-k8s-service/blob/main
+    backstage.io/edit-url: https://github.com/zenoweed/my-k8s-service/edit/main
+    argocd/app-name: my-k8s-service
 spec:
   type: service
   lifecycle: production
   owner: zenoweed
+  system: user-management
+  dependsOn:
+    - resource:default/my-postgres-db
+    - resource:default/auth-secrets
+  providesApis:
+    - my-k8s-auth-api
+  consumesApis:
+    - user-profile-api
