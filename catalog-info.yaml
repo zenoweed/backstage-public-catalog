@@ -1,9 +1,8 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: backstage-public-catalog 
-  annotations:
-    github.com/project-slug: backstage-public-catalog 
+  name: backstage-public-catalog
 spec:
-  type: other
-  lifecycle: unknown
+  type: service
+  lifecycle: production
+  owner: user:zenoweed
