@@ -5,4 +5,4 @@ metadata:
 spec:
   type: service
   lifecycle: production
-  owner: user:zenoweed
+  owner: zenoweed
